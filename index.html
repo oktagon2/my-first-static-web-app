@@ -11,6 +11,25 @@
 <body>
   <main>
     <h1>Vanilla JavaScript App 3</h1>
+    <button id="button-start">Start</button>
+    <p id="par-counter"></p>
+    <script>
+
+const buttonStart= document.getElementById( 'button-start');
+const parCounter= document.getElementById( 'par-counter');
+
+let counter= 0;
+
+function nextStep() {
+  parCounter.innerText= ++counter;
+  if((counter%10)!= 0) {
+    window.setTimeout( nextStep, 1000);
+  }
+}
+
+buttonStart.onclick= nextStep;
+
+    </script>
   </main>
 </body>
 
