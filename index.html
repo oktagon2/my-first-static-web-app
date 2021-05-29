@@ -11,11 +11,17 @@
 <body>
   <main>
     <h1>Vanilla JavaScript App 3</h1>
+    <p>Loading content from the API: <b id="name">...</b></p>
     <button id="button-start">Start</button>
     <p id="par-counter"></p>
     <script>
 
-const buttonStart= document.getElementById( 'button-start');
+(async function() {
+        const { text } = await( await fetch(`/api/message`)).json();
+        document.querySelector('#name').textContent = text;
+    }())
+
+    const buttonStart= document.getElementById( 'button-start');
 const parCounter= document.getElementById( 'par-counter');
 
 let counter= 0;
